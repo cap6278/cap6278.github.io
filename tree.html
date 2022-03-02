@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+
+
+.box::before {
+  content: "\2611";
+  color: dodgerblue;
+}
+.check-box::before {
+  content: "\2610";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+  color:black;
+}
+.nested {
+  display: block;
+}
+.collapsed {
+  display: block;
+ }
+.active {
+  display: none;
+}
+</style>
+</head>
+<body ">
+<script language="javascript">
+</script>
+<ul id="myUL">
+  <li><span class="box" id="available">Available Data</span>
+        <ul class="nested" >
+		<li><span class="box">Reports</span>
+		</li>
+		  <li><form class="box" id="toggleGT" onclick="toggleGT_onload()">Templates</form>
+				<ul class="nested">
+				  <li><span class="box">General Templates</span>
+					<ul class="nested" >
+					  <li>Primary</li>
+					  <li>Open Commit Report</li>
+					</ul>
+				  </li>
+				  <li><span class="box">Risk Template</span>
+					  <ul class="nested">
+						<li>Risk Computer Relations Report</li>
+					  </ul>
+				  </li>
+				</ul>
+		  </li>
+		  <li><span class="box">Ad Hoc Queries</span>
+			<ul class="nested">
+			  <li>Basic Detail</li>
+			  <li>Advanced Detail</li>
+			  <li>Basic Summary</li>
+			  <li>Advanced Summary</li>
+			</ul>
+		  </li>
+		  <li><span class="box">Documentation</span>
+			<ul class="nested">
+			  <li>MI Data Dictionary</li>
+			  <li>Accessplus Data Dictionary</li>
+			  <li>MI how do I...</li>
+			  <li>Tables</li>
+			</ul>
+		  </li>
+
+	    </li>
+	  </ul>
+  </li>
+</ul>
+
+<script>
+var toggler = document.getElementsByClassName("box");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+	this.classList.toggle("check-box");
+  });
+}
+/*function window_onload() {
+	var toggler = document.getElementsByClassName("nested");
+	var i;
+	var toggle;
+	for (i = 0; i < toggler.length; i++) {
+		toggle = toggler[i];
+		toggle.click();
+		this.classList.toggle("check-box");
+	}
+}*/
+
+</script>
+
+</body>
+</html>
